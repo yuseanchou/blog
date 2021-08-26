@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉文化登录</title>
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- header s-->
+    <div class="layui-container">
+        <div class="layui-row header">
+            <div class="layui-col-xs1 logo">
+               <h1>汉文化</h1>
+            </div>
+            <div class="layui-col-xs6">
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="navleft layui-tab-title">
+                      <li class="layui-this">首页</li>
+                      <li>汉文化学院</li>
+                      <li>论坛</li>
+                      <li>问答</li>
+                      <li>直播</li>
+                      <li>汉服</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-col-xs2 lh-60">
+                <div class="layui-input-inline">
+                    <input type="text" name="search" 
+                    lay-verify="required" placeholder="请输入" 
+                    autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span>登录/注册</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span>会员中心</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center">
+                <button class="layui-btn layui-btn-danger"><i class="layui-icon layui-icon-edit"></i> 创作者中心</button>
+            </div>
+        </div>
+    </div>
+    <!-- header e -->
+    <div class="register login">
+        <div class="log">
+            <div class="layui-row">
+                <div class="layui-col-xs6 loglf">
+                    <span>
+                        <img src="static/images/login/sf.png" alt="" srcset="">
+                    </span>
+                    <p>汉文化是中国文化的主体。又称为中华文化、华夏文化、儒家文化，指以春秋战国时期诸子百家学说为基础、儒家文化为骨干不断演化、发展而形成的文化
+                    </p>
+                    <p>汉民族在古代创造了辉煌灿烂的文化艺术，具有鲜明的特色。
+                        汉民族有五千多年有实物可考的历史，四千多年文字可考的历史，文化典籍极其丰富。几千年间，无论政治、军事、哲学、经济、史学、自然科学、文学（汉诗、文言文）、艺术等各个领域，都产生了众多具有深远影响的文化成就。
+                    </p>
+                </div>
+                <div class="layui-col-xs6 logrf">
+                    <div >
+                        <h3>欢迎登陆HF</h3>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>手机号登录</legend>
+                          </fieldset>
+                        <form class="layui-form" action="">
+                            <div class="layui-form-item">
+                                <input type="text" name="phone" required  lay-verify="required|phone" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                            </div>
+                            
+                            <div class="layui-form-item">
+                                <input type="password" name="password" required lay-verify="required|passowrd" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            </div>
+                            
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-fluid layui-btn-danger" lay-submit lay-filter="formDemo">登录</button>
+                            </div>
+                          </form>
+                          <div class="mt-3"></div>
+                          <fieldset class="layui-elem-field layui-field-title">
+                            <legend>第三方账号登录</legend>
+                          </fieldset>
+                          <div class="layui-row sfdl">
+                              <div class="layui-col-xs3">
+                                  <a href="#" id="">
+                                    <img src="static/images/login/qq.png" alt="qq" >  
+                                  </a>
+                              </div>
+                              <div class="layui-col-xs3">
+                                <a href="#" id="">
+                                    <img src="static/images/login/wx.png" alt="qq" >  
+                                  </a>
+                              </div>
+                              <div class="layui-col-xs3">
+                                <a href="#" id="">
+                                    <img src="static/images/login/zfb.png" alt="qq" >  
+                                  </a>
+                              </div>
+                              <div class="layui-col-xs3">
+                                <a href="#" id="">
+                                    <img src="static/images/login/wb.png" alt="qq" >  
+                                  </a>
+                              </div>
+                          </div>
+
+                          <div class="line"></div>
+                          <div class="gologin clearfix">
+                              <span><a href="javascript:;" id='wjmm'>忘记密码>></a></span>
+                              <span><a href="register" id='toregister'>没有账号？点击注册>></a>  </span>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- footer s-->
+    <div class="footer">
+        <div class="foottp">
+            <span class="layui-breadcrumb" lay-separator=" ">
+                <a href="">关于我们</a>
+                <a href="">招贤纳士</a>
+                <a href="">广告服务</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>880-820-8820</a>
+                <a href=""><i class="layui-icon layui-icon-email"></i> 2528427717@qq.com</a>
+                <a href="">在线客服</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>工作时间：24h滚动上班</a>
+              </span>
+        </div>
+        <div class="layui-container">
+            <p>公安备案号11010502030333  京ICP备19004333号  京网文〔2020〕1039-165号  教育学网站备案信息  北京互联网违法和不良信息举报中心  网络110报警服务  &copy;1999-2021上海天和技术网络技术有限公司  
+            </p>
+            <p>版权与免责声明  版权申诉</p>
+        </div>
+    </div>
+    <!-- footer e-->
+       
+      
+    <script src="static/layui/layui.all.js"></script>
+    <script>
+        $ = layui.jquery;
+        $('#wjmm').on('click', () => {
+            layer.msg('功能开发中')
+        })
+        
+        layui.use('form', () => {
+            var form = layui.form;
+            form.verify({
+            phone: function(value){
+                if(!(/^1[3-9]\d{9}$/.test(value))){
+                    return '手机号不正确';
+                }
+            }
+            ,password: function(value) {
+                if(!/^[\S]{6,12}$/.test(value)) {
+                    return '密码必须6到12位，且不能出现空格'
+                }
+            } 
+        });
+          //监听提交
+          form.on('submit(formDemo)', function(data){
+            console.log(data.field);
+            $.ajax({
+                url: 'login',
+                type: 'post',
+                dataType: 'json',
+                data: data.field,
+                success: (res) => {
+                    if(res.code == 0) {
+                        localStorage.setItem("user", res.data)
+                        location.href = '/'
+                    } else {
+                        layer.msg(res.msg)
+                    }
+                }
+            })
+            return false
+          })
+
+        })
+    
+    </script>
+</body>
+</html>

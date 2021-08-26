@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉文化</title>
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <!-- header s-->
+    <div class="layui-container">
+        <div class="layui-row header">
+            <div class="layui-col-xs1 logo">
+                <h1>汉文化</h1>
+            </div>
+            <div class="layui-col-xs6">
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="navleft layui-tab-title">
+                        <li class="layui-this">首页</li>
+                        <li>汉文化学院</li>
+                        <li>论坛</li>
+                        <li>问答</li>
+                        <li>直播</li>
+                        <li>汉服</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-col-xs2 lh-60">
+                <div class="layui-input-inline">
+                    <input type="text" name="search" lay-verify="required" placeholder="请输入" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span id='tologin'>登录/注册</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span>会员中心</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center">
+                <button class="layui-btn layui-btn-danger"><i class="layui-icon layui-icon-edit"></i> 创作者中心</button>
+            </div>
+        </div>
+    </div>
+    <!-- header e -->
+    <!-- banner s -->
+    <div class="banner">
+        <div class="layui-carousel" id="test1">
+            <div carousel-item="">
+              <div><img src="static/images/index/banner1.png"></div>
+              <div><img src="static/images/index/banner1.png"></div>
+              <div><img src="static/images/index/banner1.png"></div>
+              <div><img src="static/images/index/banner1.png"></div>
+            </div>
+          </div>
+    </div>
+    <!-- main s -->
+    <div class="main">
+        <div class="layui-row">
+            <div class="layui-col-xs2 ml">
+                <ul >
+                    <li><a class='current' href="">推荐</a></li>
+                    <li><a href="">汉服</a></li>
+                    <li><a href="">动漫</a></li>
+                    <li><a href="">文创</a></li>
+                    <li><a href="">汉文学</a></li>
+                    <li><a href="">论坛</a></li>
+                    <li><a href="">直播</a></li>
+                    <li><a href="">文学故事</a></li>
+                    <li><a href="">传统纹样</a></li>
+                    <li><a href="">礼仪</a></li>
+                </ul>
+            </div>
+            <div class="layui-col-xs8 mm">
+                <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                    <legend>信息流 - 滚动加载</legend>
+                </fieldset>
+                <div class="blog-item">
+                    <img src="static/images/index/blog.png" alt="">
+                    <div class="title">
+                        <span>原创</span>
+                        <span>我向你奔赴而来，你就是星辰大海</span>
+                    </div>
+                    <p>每当你向我走来,告诉我星辰大海,会不会我们的爱像星辰守护大海,不曾离开.我向你奔赴而来,你就是星辰大海,我眼中炽热的恒星,长夜里照我前行会不会我们
+                        的爱,会被风吹向大海不再回来每当你向我走来告诉我星辰大海，每当你向我走来,告诉我星辰大海,会不会我们的，每当你向我走来,告诉我星辰大海,会……</p>
+                </div>
+            </div>
+            <div class="layui-col-xs2">2</div> 
+        </div>
+    </div>
+    <!-- footer s-->
+    <div class="footer">
+        <div class="foottp">
+            <span class="layui-breadcrumb" lay-separator=" ">
+                <a href="">关于我们</a>
+                <a href="">招贤纳士</a>
+                <a href="">广告服务</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>880-820-8820</a>
+                <a href=""><i class="layui-icon layui-icon-email"></i> 2528427717@qq.com</a>
+                <a href="">在线客服</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>工作时间：24h滚动上班</a>
+            </span>
+        </div>
+        <div class="layui-container">
+            <p>公安备案号11010502030333 京ICP备19004333号 京网文〔2020〕1039-165号 教育学网站备案信息 北京互联网违法和不良信息举报中心 网络110报警服务
+                &copy;1999-2021上海天和技术网络技术有限公司
+            </p>
+            <p>版权与免责声明 版权申诉</p>
+        </div>
+    </div>
+    <!-- footer e-->
+
+
+    <script src="static/layui/layui.all.js"></script>
+    <script>
+        const $ = layui.jquery
+        $("#tologin").on('click', ()=> {
+            location.href='goLogin'
+        })
+        layui.use(['carousel', 'form'], function () {
+            var carousel = layui.carousel, form = layui.form;
+            //图片轮播
+            carousel.render({
+                elem: '#test1'
+                , width: '100%'
+                , height: '70.7rem'
+                , interval: 5000
+            });
+
+            //事件
+            carousel.on('change(test4)', function (res) {
+                console.log(res)
+            });
+
+            var $ = layui.$, active = {
+                set: function (othis) {
+                    var THIS = 'layui-bg-normal'
+                        , key = othis.data('key')
+                        , options = {};
+
+                    othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+                    options[key] = othis.data('value');
+                    ins3.reload(options);
+                }
+            };
+
+            //监听开关
+            form.on('switch(autoplay)', function () {
+                ins3.reload({
+                    autoplay: this.checked
+                });
+            });
+
+            $('.demoSet').on('keyup', function () {
+                var value = this.value
+                    , options = {};
+                if (!/^\d+$/.test(value)) return;
+
+                options[this.name] = value;
+                ins3.reload(options);
+            });
+
+            //其它示例
+            $('.demoTest .layui-btn').on('click', function () {
+                var othis = $(this), type = othis.data('type');
+                active[type] ? active[type].call(this, othis) : '';
+            });
+        });
+    </script>
+</body>
+
+</html>

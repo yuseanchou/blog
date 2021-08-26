@@ -1,0 +1,84 @@
+<% include header.html %>
+    <div class="layui-carousel" id="banner">
+        <div carousel-item="">
+            <div>
+                <img src="static/imgs/banner/banner1.png" alt="">
+            </div> 
+            <div> <img src="static/imgs/banner/banner2.png" alt=""></div> 
+            <div><img src="static/imgs/banner/banner3.png" alt=""></div>  
+        </div>
+    </div>
+    <div class="layui-container index">
+        <div class="layui-row">
+            <div class="layui-col-md2">
+                <ul class="index-lf-menu">
+                    <li>推荐</li>
+                    <li>汉服</li>
+                    <li>动漫</li>
+                    <li>文创</li>
+                    <li>汉文学</li>
+                    <li>论坛</li>
+                    <li>直播</li>
+                    <li>文学故事</li>
+                    <li>传统纹样</li>
+                    <li>礼仪</li>
+                    <li>
+                        <img src="static/imgs/index_1.png">
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-col-md7">
+                <div class="site-demo-flow blog-content" id="LAY_demo3">
+                    <div class="idx-item">
+                        <img height="232" src="static/imgs/banner/banner3.png" alt="">
+                        <div class="layui-row item-title"><span class="layui-col-md1">原创</span><h3 class="layui-col-md10">标题</h3> </div>
+                        <p>每当你向我走来,告诉我星辰大海,会不会我们的爱像星辰守护大海,不曾离开.我向你奔赴而来,你就是星辰大海,我眼中炽热的恒星,长夜里照我前行会不会我们
+                            的爱,会被风吹向大海不再回来每当你向我走来告诉我星辰大海，每当你向我走来,告诉我星辰大海,会不会我们的，每当你向我走来,告诉我星辰大海,每当你向我走来,告每当你向我走来,告每当你向我走来,告</p>
+                        <div class="item-user">
+                            <img src="static/imgs/tx.png" alt="">
+                            <span>user</span>
+                            <span>个签</span>
+                        </div>
+                        <div class="layui-row item-info">
+                            <div class="layui-col-md4">
+                                <span>2021-04-1</span>
+                                <span><img src="static/imgs/ll.png">9999+ </span>
+                            </div>
+                            <div class="layui-col-md8">
+                                <span><img src="static/imgs/dz.png" alt="" srcset="">9999</span>
+                                <span><img src="static/imgs/pl.png" alt="" srcset="">9999</span>
+                                <span><img src="static/imgs/sc.png" alt="" srcset="">9999</span>
+                                <span><img src="static/imgs/fx.png" alt="" srcset="">0099</span>
+                            </div>
+                        </div>
+                        <div class="item-line"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="layui-col-md3 idx-r">
+                <div class="r-user">
+                    <h3>你好，欢迎登陆HF</h3>
+                    <p>登陆HF，探索更多关于汉文化的秘密</p>
+                    <button type="button" id='toLogin' class="layui-btn layui-btn-primary">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+<script>
+    $('#toLogin').on('click', () => {
+        location.href = '/toLogin'
+    })
+    layui.use('carousel', function(){
+      var carousel = layui.carousel;
+      //建造实例
+      carousel.render({
+        elem: '#banner'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        // ,anim: 'updown' //切换动画方式
+      });
+    });
+    </script>
+<% include footer.html %>

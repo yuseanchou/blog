@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 62.5%;
+    font-family: "微软雅黑";
+}
+:root{
+    font-size: 1.2rem;
+}
+
+a{
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    display: flex;
+}
+.header :nth-child(1) {
+    width: 10%;
+}
+.header:nth-child(2) {
+    width: 50%;
+}
+.header:nth-child(3) {
+    width: 20%;
+}
+
+.header ul li {
+    float: left;
+    margin-right: 5.8em;
+    font-size: 1.2em;
+}

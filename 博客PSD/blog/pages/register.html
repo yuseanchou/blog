@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉文化注册</title>
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    
+    <!-- header s-->
+    <div class="layui-container">
+        <div class="layui-row header">
+            <div class="layui-col-xs1 logo">
+               <h1>汉文化</h1>
+            </div>
+            <div class="layui-col-xs6">
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <ul class="navleft layui-tab-title">
+                      <li class="layui-this">首页</li>
+                      <li>汉文化学院</li>
+                      <li>论坛</li>
+                      <li>问答</li>
+                      <li>直播</li>
+                      <li>汉服</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-col-xs2 lh-60">
+                <div class="layui-input-inline">
+                    <input type="text" name="search" 
+                    lay-verify="required" placeholder="请输入" 
+                    autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span>登录/注册</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center cursor-pointer">
+                <span>会员中心</span>
+            </div>
+            <div class="layui-col-xs1 lh-60 text-center">
+                <button class="layui-btn layui-btn-danger"><i class="layui-icon layui-icon-edit"></i> 创作者中心</button>
+            </div>
+        </div>
+    </div>
+    <!-- header e -->
+    <div class="register">
+        <div class="rg">
+            <h3>注册</h3>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>手机号注册</legend>
+              </fieldset>
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <input type="text" name="phone" required  lay-verify="required|phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <input type="text" name="code" required  lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-mid layui-word-aux">
+                            <span class="code" id='getCode'>发送验证码</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" name="password" required lay-verify="required|passowrd" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                      <input type="password" name="newpassword" required lay-verify="required" placeholder="请确认密码" autocomplete="off" class="layui-input">
+                  </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid layui-btn-danger" lay-submit lay-filter="formDemo">立即提交</button>
+                </div>
+              </form>
+              <div class="line"></div>
+              <div class="gologin">
+                  <p>已有账号? <a href="goLogin">登录到HF</a></p>
+              </div>
+        </div>
+    </div>
+    <!-- footer s-->
+    <div class="footer">
+        <div class="foottp">
+            <span class="layui-breadcrumb" lay-separator=" ">
+                <a href="">关于我们</a>
+                <a href="">招贤纳士</a>
+                <a href="">广告服务</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>880-820-8820</a>
+                <a href=""><i class="layui-icon layui-icon-email"></i> 2528427717@qq.com</a>
+                <a href="">在线客服</a>
+                <a href=""><i class="layui-icon layui-icon-service"></i>工作时间：24h滚动上班</a>
+              </span>
+        </div>
+        <div class="layui-container">
+            <p>公安备案号11010502030333  京ICP备19004333号  京网文〔2020〕1039-165号  教育学网站备案信息  北京互联网违法和不良信息举报中心  网络110报警服务  &copy;1999-2021上海天和技术网络技术有限公司  
+            </p>
+            <p>版权与免责声明  版权申诉</p>
+        </div>
+    </div>
+    <!-- footer e-->
+       
+      
+    <script src="static/layui/layui.all.js"></script>
+    <script>
+        //Demo
+        layui.use('form', function(){
+            $ = layui.jquery;
+            $('input[name=phone]').on('blur', ()=> {
+                let phone = $('input[name=phone]').val()
+                console.log(phone)
+                if(phone && /^1[3-9]\d{9}$/.test(phone)) {
+                    $.ajax({
+                        url: 'checkUser',
+                        data: {
+                            phone  
+                        },
+                        dataType:'json',
+                        success: (res) => {
+                            if(res.code !== 0) {
+                                layer.msg(res.msg)
+                            }
+                        }
+                    })
+                }
+                
+            })
+            let code = ''
+          $("#getCode").on('click', ()=> {
+              console.log(111)
+              $.ajax({
+                  url: 'getCode',
+                  async: false,
+                  success: (res)=> {
+                    console.log('res:', res)
+                    code = res.data
+                  }
+              })
+          })
+          var form = layui.form;
+          //自定义验证规则
+        form.verify({
+            phone: function(value){
+                if(!(/^1[3-9]\d{9}$/.test(value))){
+                    return '手机号不正确';
+                }
+            }
+            ,password: function(value) {
+                if(!/^[\S]{6,12}$/.test(value)) {
+                    return '密码必须6到12位，且不能出现空格'
+                }
+            } 
+        });
+          //监听提交
+          form.on('submit(formDemo)', function(data){
+            if(code != data.field.code) {
+                layer.msg('验证码错误')
+                return false;
+            } else if(data.field.password != data.field.newpassword) {
+                layer.msg('两次密码不一致')
+                return false;
+            } 
+            console.log(data.field)
+            console.log(code);
+            $.ajax({
+                url: 'registerUser',
+                dataType:'json',
+                type: 'post',
+                data: {
+                    phone: data.field.phone,
+                    password: data.field.password
+                },
+                success: resp => {
+                    console.log("resp:", resp)
+                    if(resp.code == 0) {
+                        let ms = `
+                            <div style='text-align:center; color: #30D05A;'>
+                                <img src='static/images/register/success.png'>
+                                <p>恭喜您注册成功</p>
+                            </div>
+                        `
+                        layer.msg(ms, {
+                        time: 20000, //20s后自动关闭
+                        btn: [resp.msg],
+                        yes: () => {
+                            location.href = '/goLogin'
+                        }
+                    });
+                    } else {
+                        layer.msg(resp.msg)
+                    }
+                }
+            })
+
+            // layer.msg(JSON.stringify(data.field));
+            return false;
+          });
+        });
+        </script>
+</body>
+</html>
